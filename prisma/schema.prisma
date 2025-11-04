@@ -13,3 +13,38 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Aluno{
+  id String @id @default(uuid())
+  nome String @db.VarChar(100)
+  email String @unique @db.VarChar(100)
+  senha DateTime? @db.Date
+  formado Boolean @default(false)
+  dtCriacao DateTime @default(now()) @map("dt_criacao")
+  dtAtualizacao DateTime @updatedAt @map("dt_atualizacao")
+  @@map("aluno")
+}
+
+model Curso{
+  id String @id @default(uuid())
+  titulo String @db.VarChar(100)
+  ementa String @db.VarChar(100)
+  cargaHoraria Decimal @map("carga_horaria")
+  maxAlunos Int @default(30) @db.SmallInt
+  status String
+  dtCriacao DateTime @default(now()) @map("dt_criacao")
+  dtAtualizacao DateTime @updatedAt @map("dt_atualizacao")
+  @@map("curso")
+}
+
+model Material{
+  id Int @id @default(autoincrement())
+  titulo String @db.VarChar(100)
+  descricao String
+  link String
+  disponivel Boolean
+  dtCriacao DateTime @default(now()) @map("dt_criacao")
+  dtAtualizacao DateTime @updatedAt @map("dt_atualizacao")
+  @@map("material")
+}
+
