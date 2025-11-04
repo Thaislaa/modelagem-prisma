@@ -18,11 +18,37 @@ model Aluno{
   id String @id @default(uuid())
   nome String @db.VarChar(100)
   email String @unique @db.VarChar(100)
-  senha DateTime? @db.Date
+  senha String @db.VarChar(100)
+  dtNascimento DateTime? @db.Date @map("dt_nascimento")
   formado Boolean @default(false)
+  rg Int?
+  endereco Endereco?
+  avaliacoes Avaliacao[]
+  matricula Matricula[]
   dtCriacao DateTime @default(now()) @map("dt_criacao")
   dtAtualizacao DateTime @updatedAt @map("dt_atualizacao")
   @@map("aluno")
+}
+
+model Endereco{
+  id String @id @default(uuid())
+  rua String @db.VarChar(30)
+  bairro String @db.VarChar(30)
+  numero Int
+  cidade String @db.VarChar(50)
+  idAluno String @unique @map("id_aluno")
+  aluno Aluno @relation(fields: [idAluno], references: [id])
+  @@map("endereco")
+}
+
+model Avaliacao{
+  id String @id @default(uuid())
+  disciplina String @db.VarChar(30)
+  nota Int @db.SmallInt
+  dtAvaliacao DateTime @default(now()) @map("dt_avaliacao")
+  idAluno String @map("id_aluno")
+  aluno Aluno @relation(fields: [idAluno],references: [id])
+  @@map("avaliacao")
 }
 
 model Curso{
@@ -32,9 +58,20 @@ model Curso{
   cargaHoraria Decimal @map("carga_horaria")
   maxAlunos Int @default(30) @db.SmallInt
   status String
+  matriculas Matricula[]
   dtCriacao DateTime @default(now()) @map("dt_criacao")
   dtAtualizacao DateTime @updatedAt @map("dt_atualizacao")
   @@map("curso")
+}
+
+model Matricula{
+  idAluno String @map("id_aluno")
+  idCurso String @map("id_curso")
+  dtMatricula DateTime @default(now()) @map("dt_matricula")
+  aluno Aluno @relation(fields: [idAluno], references: [id])
+  curso Curso @relation(fields: [idCurso], references: [id])
+  @@id([idAluno, idCurso])
+  @@map("matricula")
 }
 
 model Material{
@@ -47,4 +84,3 @@ model Material{
   dtAtualizacao DateTime @updatedAt @map("dt_atualizacao")
   @@map("material")
 }
-
