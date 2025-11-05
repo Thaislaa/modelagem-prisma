@@ -7,10 +7,10 @@
  *
  * 🟢 You can import this file directly.
  */
-export type * from './models/Aluno.js'
-export type * from './models/Endereco.js'
-export type * from './models/Avaliacao.js'
-export type * from './models/Curso.js'
-export type * from './models/Matricula.js'
-export type * from './models/Material.js'
-export type * from './commonInputTypes.js'
+export type * from './models/Aluno'
+export type * from './models/Endereco'
+export type * from './models/Avaliacao'
+export type * from './models/Curso'
+export type * from './models/Matricula'
+export type * from './models/Material'
+export type * from './commonInputTypes'

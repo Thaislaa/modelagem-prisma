@@ -8,8 +8,8 @@
  * 🟢 You can import this file directly.
  */
 import type * as runtime from "@prisma/client/runtime/library"
-import type * as $Enums from "../enums.js"
-import type * as Prisma from "../internal/prismaNamespace.js"
+import type * as $Enums from "../enums"
+import type * as Prisma from "../internal/prismaNamespace"
 
 /**
  * Model Aluno
@@ -38,11 +38,11 @@ export type AlunoMinAggregateOutputType = {
   nome: string | null
   email: string | null
   senha: string | null
-  dtNascimento: Date | null
   formado: boolean | null
-  rg: number | null
   dtCriacao: Date | null
   dtAtualizacao: Date | null
+  rg: number | null
+  dtNascimento: Date | null
 }
 
 export type AlunoMaxAggregateOutputType = {
@@ -50,11 +50,11 @@ export type AlunoMaxAggregateOutputType = {
   nome: string | null
   email: string | null
   senha: string | null
-  dtNascimento: Date | null
   formado: boolean | null
-  rg: number | null
   dtCriacao: Date | null
   dtAtualizacao: Date | null
+  rg: number | null
+  dtNascimento: Date | null
 }
 
 export type AlunoCountAggregateOutputType = {
@@ -62,11 +62,11 @@ export type AlunoCountAggregateOutputType = {
   nome: number
   email: number
   senha: number
-  dtNascimento: number
   formado: number
-  rg: number
   dtCriacao: number
   dtAtualizacao: number
+  rg: number
+  dtNascimento: number
   _all: number
 }
 
@@ -84,11 +84,11 @@ export type AlunoMinAggregateInputType = {
   nome?: true
   email?: true
   senha?: true
-  dtNascimento?: true
   formado?: true
-  rg?: true
   dtCriacao?: true
   dtAtualizacao?: true
+  rg?: true
+  dtNascimento?: true
 }
 
 export type AlunoMaxAggregateInputType = {
@@ -96,11 +96,11 @@ export type AlunoMaxAggregateInputType = {
   nome?: true
   email?: true
   senha?: true
-  dtNascimento?: true
   formado?: true
-  rg?: true
   dtCriacao?: true
   dtAtualizacao?: true
+  rg?: true
+  dtNascimento?: true
 }
 
 export type AlunoCountAggregateInputType = {
@@ -108,11 +108,11 @@ export type AlunoCountAggregateInputType = {
   nome?: true
   email?: true
   senha?: true
-  dtNascimento?: true
   formado?: true
-  rg?: true
   dtCriacao?: true
   dtAtualizacao?: true
+  rg?: true
+  dtNascimento?: true
   _all?: true
 }
 
@@ -207,11 +207,11 @@ export type AlunoGroupByOutputType = {
   nome: string
   email: string
   senha: string
-  dtNascimento: Date | null
   formado: boolean
-  rg: number | null
   dtCriacao: Date
   dtAtualizacao: Date
+  rg: number | null
+  dtNascimento: Date | null
   _count: AlunoCountAggregateOutputType | null
   _avg: AlunoAvgAggregateOutputType | null
   _sum: AlunoSumAggregateOutputType | null
@@ -242,13 +242,13 @@ export type AlunoWhereInput = {
   nome?: Prisma.StringFilter<"Aluno"> | string
   email?: Prisma.StringFilter<"Aluno"> | string
   senha?: Prisma.StringFilter<"Aluno"> | string
-  dtNascimento?: Prisma.DateTimeNullableFilter<"Aluno"> | Date | string | null
   formado?: Prisma.BoolFilter<"Aluno"> | boolean
-  rg?: Prisma.IntNullableFilter<"Aluno"> | number | null
   dtCriacao?: Prisma.DateTimeFilter<"Aluno"> | Date | string
   dtAtualizacao?: Prisma.DateTimeFilter<"Aluno"> | Date | string
-  endereco?: Prisma.XOR<Prisma.EnderecoNullableScalarRelationFilter, Prisma.EnderecoWhereInput> | null
+  rg?: Prisma.IntNullableFilter<"Aluno"> | number | null
+  dtNascimento?: Prisma.DateTimeNullableFilter<"Aluno"> | Date | string | null
   avaliacoes?: Prisma.AvaliacaoListRelationFilter
+  endereco?: Prisma.XOR<Prisma.EnderecoNullableScalarRelationFilter, Prisma.EnderecoWhereInput> | null
   matricula?: Prisma.MatriculaListRelationFilter
 }
 
@@ -257,13 +257,13 @@ export type AlunoOrderByWithRelationInput = {
   nome?: Prisma.SortOrder
   email?: Prisma.SortOrder
   senha?: Prisma.SortOrder
-  dtNascimento?: Prisma.SortOrderInput | Prisma.SortOrder
   formado?: Prisma.SortOrder
-  rg?: Prisma.SortOrderInput | Prisma.SortOrder
   dtCriacao?: Prisma.SortOrder
   dtAtualizacao?: Prisma.SortOrder
-  endereco?: Prisma.EnderecoOrderByWithRelationInput
+  rg?: Prisma.SortOrderInput | Prisma.SortOrder
+  dtNascimento?: Prisma.SortOrderInput | Prisma.SortOrder
   avaliacoes?: Prisma.AvaliacaoOrderByRelationAggregateInput
+  endereco?: Prisma.EnderecoOrderByWithRelationInput
   matricula?: Prisma.MatriculaOrderByRelationAggregateInput
 }
 
@@ -275,13 +275,13 @@ export type AlunoWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.AlunoWhereInput | Prisma.AlunoWhereInput[]
   nome?: Prisma.StringFilter<"Aluno"> | string
   senha?: Prisma.StringFilter<"Aluno"> | string
-  dtNascimento?: Prisma.DateTimeNullableFilter<"Aluno"> | Date | string | null
   formado?: Prisma.BoolFilter<"Aluno"> | boolean
-  rg?: Prisma.IntNullableFilter<"Aluno"> | number | null
   dtCriacao?: Prisma.DateTimeFilter<"Aluno"> | Date | string
   dtAtualizacao?: Prisma.DateTimeFilter<"Aluno"> | Date | string
-  endereco?: Prisma.XOR<Prisma.EnderecoNullableScalarRelationFilter, Prisma.EnderecoWhereInput> | null
+  rg?: Prisma.IntNullableFilter<"Aluno"> | number | null
+  dtNascimento?: Prisma.DateTimeNullableFilter<"Aluno"> | Date | string | null
   avaliacoes?: Prisma.AvaliacaoListRelationFilter
+  endereco?: Prisma.XOR<Prisma.EnderecoNullableScalarRelationFilter, Prisma.EnderecoWhereInput> | null
   matricula?: Prisma.MatriculaListRelationFilter
 }, "id" | "email">
 
@@ -290,11 +290,11 @@ export type AlunoOrderByWithAggregationInput = {
   nome?: Prisma.SortOrder
   email?: Prisma.SortOrder
   senha?: Prisma.SortOrder
-  dtNascimento?: Prisma.SortOrderInput | Prisma.SortOrder
   formado?: Prisma.SortOrder
-  rg?: Prisma.SortOrderInput | Prisma.SortOrder
   dtCriacao?: Prisma.SortOrder
   dtAtualizacao?: Prisma.SortOrder
+  rg?: Prisma.SortOrderInput | Prisma.SortOrder
+  dtNascimento?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.AlunoCountOrderByAggregateInput
   _avg?: Prisma.AlunoAvgOrderByAggregateInput
   _max?: Prisma.AlunoMaxOrderByAggregateInput
@@ -310,11 +310,11 @@ export type AlunoScalarWhereWithAggregatesInput = {
   nome?: Prisma.StringWithAggregatesFilter<"Aluno"> | string
   email?: Prisma.StringWithAggregatesFilter<"Aluno"> | string
   senha?: Prisma.StringWithAggregatesFilter<"Aluno"> | string
-  dtNascimento?: Prisma.DateTimeNullableWithAggregatesFilter<"Aluno"> | Date | string | null
   formado?: Prisma.BoolWithAggregatesFilter<"Aluno"> | boolean
-  rg?: Prisma.IntNullableWithAggregatesFilter<"Aluno"> | number | null
   dtCriacao?: Prisma.DateTimeWithAggregatesFilter<"Aluno"> | Date | string
   dtAtualizacao?: Prisma.DateTimeWithAggregatesFilter<"Aluno"> | Date | string
+  rg?: Prisma.IntNullableWithAggregatesFilter<"Aluno"> | number | null
+  dtNascimento?: Prisma.DateTimeNullableWithAggregatesFilter<"Aluno"> | Date | string | null
 }
 
 export type AlunoCreateInput = {
@@ -322,13 +322,13 @@ export type AlunoCreateInput = {
   nome: string
   email: string
   senha: string
-  dtNascimento?: Date | string | null
   formado?: boolean
-  rg?: number | null
   dtCriacao?: Date | string
   dtAtualizacao?: Date | string
-  endereco?: Prisma.EnderecoCreateNestedOneWithoutAlunoInput
+  rg?: number | null
+  dtNascimento?: Date | string | null
   avaliacoes?: Prisma.AvaliacaoCreateNestedManyWithoutAlunoInput
+  endereco?: Prisma.EnderecoCreateNestedOneWithoutAlunoInput
   matricula?: Prisma.MatriculaCreateNestedManyWithoutAlunoInput
 }
 
@@ -337,13 +337,13 @@ export type AlunoUncheckedCreateInput = {
   nome: string
   email: string
   senha: string
-  dtNascimento?: Date | string | null
   formado?: boolean
-  rg?: number | null
   dtCriacao?: Date | string
   dtAtualizacao?: Date | string
-  endereco?: Prisma.EnderecoUncheckedCreateNestedOneWithoutAlunoInput
+  rg?: number | null
+  dtNascimento?: Date | string | null
   avaliacoes?: Prisma.AvaliacaoUncheckedCreateNestedManyWithoutAlunoInput
+  endereco?: Prisma.EnderecoUncheckedCreateNestedOneWithoutAlunoInput
   matricula?: Prisma.MatriculaUncheckedCreateNestedManyWithoutAlunoInput
 }
 
@@ -352,13 +352,13 @@ export type AlunoUpdateInput = {
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   senha?: Prisma.StringFieldUpdateOperationsInput | string
-  dtNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   formado?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  rg?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dtCriacao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dtAtualizacao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endereco?: Prisma.EnderecoUpdateOneWithoutAlunoNestedInput
+  rg?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  dtNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   avaliacoes?: Prisma.AvaliacaoUpdateManyWithoutAlunoNestedInput
+  endereco?: Prisma.EnderecoUpdateOneWithoutAlunoNestedInput
   matricula?: Prisma.MatriculaUpdateManyWithoutAlunoNestedInput
 }
 
@@ -367,13 +367,13 @@ export type AlunoUncheckedUpdateInput = {
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   senha?: Prisma.StringFieldUpdateOperationsInput | string
-  dtNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   formado?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  rg?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dtCriacao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dtAtualizacao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endereco?: Prisma.EnderecoUncheckedUpdateOneWithoutAlunoNestedInput
+  rg?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  dtNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   avaliacoes?: Prisma.AvaliacaoUncheckedUpdateManyWithoutAlunoNestedInput
+  endereco?: Prisma.EnderecoUncheckedUpdateOneWithoutAlunoNestedInput
   matricula?: Prisma.MatriculaUncheckedUpdateManyWithoutAlunoNestedInput
 }
 
@@ -382,11 +382,11 @@ export type AlunoCreateManyInput = {
   nome: string
   email: string
   senha: string
-  dtNascimento?: Date | string | null
   formado?: boolean
-  rg?: number | null
   dtCriacao?: Date | string
   dtAtualizacao?: Date | string
+  rg?: number | null
+  dtNascimento?: Date | string | null
 }
 
 export type AlunoUpdateManyMutationInput = {
@@ -394,11 +394,11 @@ export type AlunoUpdateManyMutationInput = {
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   senha?: Prisma.StringFieldUpdateOperationsInput | string
-  dtNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   formado?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  rg?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dtCriacao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dtAtualizacao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  rg?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  dtNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type AlunoUncheckedUpdateManyInput = {
@@ -406,11 +406,11 @@ export type AlunoUncheckedUpdateManyInput = {
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   senha?: Prisma.StringFieldUpdateOperationsInput | string
-  dtNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   formado?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  rg?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dtCriacao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dtAtualizacao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  rg?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  dtNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type AlunoCountOrderByAggregateInput = {
@@ -418,11 +418,11 @@ export type AlunoCountOrderByAggregateInput = {
   nome?: Prisma.SortOrder
   email?: Prisma.SortOrder
   senha?: Prisma.SortOrder
-  dtNascimento?: Prisma.SortOrder
   formado?: Prisma.SortOrder
-  rg?: Prisma.SortOrder
   dtCriacao?: Prisma.SortOrder
   dtAtualizacao?: Prisma.SortOrder
+  rg?: Prisma.SortOrder
+  dtNascimento?: Prisma.SortOrder
 }
 
 export type AlunoAvgOrderByAggregateInput = {
@@ -434,11 +434,11 @@ export type AlunoMaxOrderByAggregateInput = {
   nome?: Prisma.SortOrder
   email?: Prisma.SortOrder
   senha?: Prisma.SortOrder
-  dtNascimento?: Prisma.SortOrder
   formado?: Prisma.SortOrder
-  rg?: Prisma.SortOrder
   dtCriacao?: Prisma.SortOrder
   dtAtualizacao?: Prisma.SortOrder
+  rg?: Prisma.SortOrder
+  dtNascimento?: Prisma.SortOrder
 }
 
 export type AlunoMinOrderByAggregateInput = {
@@ -446,11 +446,11 @@ export type AlunoMinOrderByAggregateInput = {
   nome?: Prisma.SortOrder
   email?: Prisma.SortOrder
   senha?: Prisma.SortOrder
-  dtNascimento?: Prisma.SortOrder
   formado?: Prisma.SortOrder
-  rg?: Prisma.SortOrder
   dtCriacao?: Prisma.SortOrder
   dtAtualizacao?: Prisma.SortOrder
+  rg?: Prisma.SortOrder
+  dtNascimento?: Prisma.SortOrder
 }
 
 export type AlunoSumOrderByAggregateInput = {
@@ -466,12 +466,12 @@ export type StringFieldUpdateOperationsInput = {
   set?: string
 }
 
-export type NullableDateTimeFieldUpdateOperationsInput = {
-  set?: Date | string | null
-}
-
 export type BoolFieldUpdateOperationsInput = {
   set?: boolean
+}
+
+export type DateTimeFieldUpdateOperationsInput = {
+  set?: Date | string
 }
 
 export type NullableIntFieldUpdateOperationsInput = {
@@ -482,8 +482,8 @@ export type NullableIntFieldUpdateOperationsInput = {
   divide?: number
 }
 
-export type DateTimeFieldUpdateOperationsInput = {
-  set?: Date | string
+export type NullableDateTimeFieldUpdateOperationsInput = {
+  set?: Date | string | null
 }
 
 export type AlunoCreateNestedOneWithoutEnderecoInput = {
@@ -533,11 +533,11 @@ export type AlunoCreateWithoutEnderecoInput = {
   nome: string
   email: string
   senha: string
-  dtNascimento?: Date | string | null
   formado?: boolean
-  rg?: number | null
   dtCriacao?: Date | string
   dtAtualizacao?: Date | string
+  rg?: number | null
+  dtNascimento?: Date | string | null
   avaliacoes?: Prisma.AvaliacaoCreateNestedManyWithoutAlunoInput
   matricula?: Prisma.MatriculaCreateNestedManyWithoutAlunoInput
 }
@@ -547,11 +547,11 @@ export type AlunoUncheckedCreateWithoutEnderecoInput = {
   nome: string
   email: string
   senha: string
-  dtNascimento?: Date | string | null
   formado?: boolean
-  rg?: number | null
   dtCriacao?: Date | string
   dtAtualizacao?: Date | string
+  rg?: number | null
+  dtNascimento?: Date | string | null
   avaliacoes?: Prisma.AvaliacaoUncheckedCreateNestedManyWithoutAlunoInput
   matricula?: Prisma.MatriculaUncheckedCreateNestedManyWithoutAlunoInput
 }
@@ -577,11 +577,11 @@ export type AlunoUpdateWithoutEnderecoInput = {
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   senha?: Prisma.StringFieldUpdateOperationsInput | string
-  dtNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   formado?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  rg?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dtCriacao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dtAtualizacao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  rg?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  dtNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   avaliacoes?: Prisma.AvaliacaoUpdateManyWithoutAlunoNestedInput
   matricula?: Prisma.MatriculaUpdateManyWithoutAlunoNestedInput
 }
@@ -591,11 +591,11 @@ export type AlunoUncheckedUpdateWithoutEnderecoInput = {
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   senha?: Prisma.StringFieldUpdateOperationsInput | string
-  dtNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   formado?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  rg?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dtCriacao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dtAtualizacao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  rg?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  dtNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   avaliacoes?: Prisma.AvaliacaoUncheckedUpdateManyWithoutAlunoNestedInput
   matricula?: Prisma.MatriculaUncheckedUpdateManyWithoutAlunoNestedInput
 }
@@ -605,11 +605,11 @@ export type AlunoCreateWithoutAvaliacoesInput = {
   nome: string
   email: string
   senha: string
-  dtNascimento?: Date | string | null
   formado?: boolean
-  rg?: number | null
   dtCriacao?: Date | string
   dtAtualizacao?: Date | string
+  rg?: number | null
+  dtNascimento?: Date | string | null
   endereco?: Prisma.EnderecoCreateNestedOneWithoutAlunoInput
   matricula?: Prisma.MatriculaCreateNestedManyWithoutAlunoInput
 }
@@ -619,11 +619,11 @@ export type AlunoUncheckedCreateWithoutAvaliacoesInput = {
   nome: string
   email: string
   senha: string
-  dtNascimento?: Date | string | null
   formado?: boolean
-  rg?: number | null
   dtCriacao?: Date | string
   dtAtualizacao?: Date | string
+  rg?: number | null
+  dtNascimento?: Date | string | null
   endereco?: Prisma.EnderecoUncheckedCreateNestedOneWithoutAlunoInput
   matricula?: Prisma.MatriculaUncheckedCreateNestedManyWithoutAlunoInput
 }
@@ -649,11 +649,11 @@ export type AlunoUpdateWithoutAvaliacoesInput = {
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   senha?: Prisma.StringFieldUpdateOperationsInput | string
-  dtNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   formado?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  rg?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dtCriacao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dtAtualizacao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  rg?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  dtNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   endereco?: Prisma.EnderecoUpdateOneWithoutAlunoNestedInput
   matricula?: Prisma.MatriculaUpdateManyWithoutAlunoNestedInput
 }
@@ -663,11 +663,11 @@ export type AlunoUncheckedUpdateWithoutAvaliacoesInput = {
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   senha?: Prisma.StringFieldUpdateOperationsInput | string
-  dtNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   formado?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  rg?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dtCriacao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dtAtualizacao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  rg?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  dtNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   endereco?: Prisma.EnderecoUncheckedUpdateOneWithoutAlunoNestedInput
   matricula?: Prisma.MatriculaUncheckedUpdateManyWithoutAlunoNestedInput
 }
@@ -677,13 +677,13 @@ export type AlunoCreateWithoutMatriculaInput = {
   nome: string
   email: string
   senha: string
-  dtNascimento?: Date | string | null
   formado?: boolean
-  rg?: number | null
   dtCriacao?: Date | string
   dtAtualizacao?: Date | string
-  endereco?: Prisma.EnderecoCreateNestedOneWithoutAlunoInput
+  rg?: number | null
+  dtNascimento?: Date | string | null
   avaliacoes?: Prisma.AvaliacaoCreateNestedManyWithoutAlunoInput
+  endereco?: Prisma.EnderecoCreateNestedOneWithoutAlunoInput
 }
 
 export type AlunoUncheckedCreateWithoutMatriculaInput = {
@@ -691,13 +691,13 @@ export type AlunoUncheckedCreateWithoutMatriculaInput = {
   nome: string
   email: string
   senha: string
-  dtNascimento?: Date | string | null
   formado?: boolean
-  rg?: number | null
   dtCriacao?: Date | string
   dtAtualizacao?: Date | string
-  endereco?: Prisma.EnderecoUncheckedCreateNestedOneWithoutAlunoInput
+  rg?: number | null
+  dtNascimento?: Date | string | null
   avaliacoes?: Prisma.AvaliacaoUncheckedCreateNestedManyWithoutAlunoInput
+  endereco?: Prisma.EnderecoUncheckedCreateNestedOneWithoutAlunoInput
 }
 
 export type AlunoCreateOrConnectWithoutMatriculaInput = {
@@ -721,13 +721,13 @@ export type AlunoUpdateWithoutMatriculaInput = {
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   senha?: Prisma.StringFieldUpdateOperationsInput | string
-  dtNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   formado?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  rg?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dtCriacao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dtAtualizacao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endereco?: Prisma.EnderecoUpdateOneWithoutAlunoNestedInput
+  rg?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  dtNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   avaliacoes?: Prisma.AvaliacaoUpdateManyWithoutAlunoNestedInput
+  endereco?: Prisma.EnderecoUpdateOneWithoutAlunoNestedInput
 }
 
 export type AlunoUncheckedUpdateWithoutMatriculaInput = {
@@ -735,13 +735,13 @@ export type AlunoUncheckedUpdateWithoutMatriculaInput = {
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   senha?: Prisma.StringFieldUpdateOperationsInput | string
-  dtNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   formado?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  rg?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dtCriacao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dtAtualizacao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endereco?: Prisma.EnderecoUncheckedUpdateOneWithoutAlunoNestedInput
+  rg?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  dtNascimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   avaliacoes?: Prisma.AvaliacaoUncheckedUpdateManyWithoutAlunoNestedInput
+  endereco?: Prisma.EnderecoUncheckedUpdateOneWithoutAlunoNestedInput
 }
 
 
@@ -789,13 +789,13 @@ export type AlunoSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   nome?: boolean
   email?: boolean
   senha?: boolean
-  dtNascimento?: boolean
   formado?: boolean
-  rg?: boolean
   dtCriacao?: boolean
   dtAtualizacao?: boolean
-  endereco?: boolean | Prisma.Aluno$enderecoArgs<ExtArgs>
+  rg?: boolean
+  dtNascimento?: boolean
   avaliacoes?: boolean | Prisma.Aluno$avaliacoesArgs<ExtArgs>
+  endereco?: boolean | Prisma.Aluno$enderecoArgs<ExtArgs>
   matricula?: boolean | Prisma.Aluno$matriculaArgs<ExtArgs>
   _count?: boolean | Prisma.AlunoCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["aluno"]>
@@ -805,11 +805,11 @@ export type AlunoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   nome?: boolean
   email?: boolean
   senha?: boolean
-  dtNascimento?: boolean
   formado?: boolean
-  rg?: boolean
   dtCriacao?: boolean
   dtAtualizacao?: boolean
+  rg?: boolean
+  dtNascimento?: boolean
 }, ExtArgs["result"]["aluno"]>
 
 export type AlunoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -817,11 +817,11 @@ export type AlunoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   nome?: boolean
   email?: boolean
   senha?: boolean
-  dtNascimento?: boolean
   formado?: boolean
-  rg?: boolean
   dtCriacao?: boolean
   dtAtualizacao?: boolean
+  rg?: boolean
+  dtNascimento?: boolean
 }, ExtArgs["result"]["aluno"]>
 
 export type AlunoSelectScalar = {
@@ -829,17 +829,17 @@ export type AlunoSelectScalar = {
   nome?: boolean
   email?: boolean
   senha?: boolean
-  dtNascimento?: boolean
   formado?: boolean
-  rg?: boolean
   dtCriacao?: boolean
   dtAtualizacao?: boolean
+  rg?: boolean
+  dtNascimento?: boolean
 }
 
-export type AlunoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nome" | "email" | "senha" | "dtNascimento" | "formado" | "rg" | "dtCriacao" | "dtAtualizacao", ExtArgs["result"]["aluno"]>
+export type AlunoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nome" | "email" | "senha" | "formado" | "dtCriacao" | "dtAtualizacao" | "rg" | "dtNascimento", ExtArgs["result"]["aluno"]>
 export type AlunoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  endereco?: boolean | Prisma.Aluno$enderecoArgs<ExtArgs>
   avaliacoes?: boolean | Prisma.Aluno$avaliacoesArgs<ExtArgs>
+  endereco?: boolean | Prisma.Aluno$enderecoArgs<ExtArgs>
   matricula?: boolean | Prisma.Aluno$matriculaArgs<ExtArgs>
   _count?: boolean | Prisma.AlunoCountOutputTypeDefaultArgs<ExtArgs>
 }
@@ -849,8 +849,8 @@ export type AlunoIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
 export type $AlunoPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Aluno"
   objects: {
-    endereco: Prisma.$EnderecoPayload<ExtArgs> | null
     avaliacoes: Prisma.$AvaliacaoPayload<ExtArgs>[]
+    endereco: Prisma.$EnderecoPayload<ExtArgs> | null
     matricula: Prisma.$MatriculaPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
@@ -858,11 +858,11 @@ export type $AlunoPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     nome: string
     email: string
     senha: string
-    dtNascimento: Date | null
     formado: boolean
-    rg: number | null
     dtCriacao: Date
     dtAtualizacao: Date
+    rg: number | null
+    dtNascimento: Date | null
   }, ExtArgs["result"]["aluno"]>
   composites: {}
 }
@@ -1257,8 +1257,8 @@ readonly fields: AlunoFieldRefs;
  */
 export interface Prisma__AlunoClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  endereco<T extends Prisma.Aluno$enderecoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Aluno$enderecoArgs<ExtArgs>>): Prisma.Prisma__EnderecoClient<runtime.Types.Result.GetResult<Prisma.$EnderecoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   avaliacoes<T extends Prisma.Aluno$avaliacoesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Aluno$avaliacoesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  endereco<T extends Prisma.Aluno$enderecoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Aluno$enderecoArgs<ExtArgs>>): Prisma.Prisma__EnderecoClient<runtime.Types.Result.GetResult<Prisma.$EnderecoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   matricula<T extends Prisma.Aluno$matriculaArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Aluno$matriculaArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MatriculaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1293,11 +1293,11 @@ export interface AlunoFieldRefs {
   readonly nome: Prisma.FieldRef<"Aluno", 'String'>
   readonly email: Prisma.FieldRef<"Aluno", 'String'>
   readonly senha: Prisma.FieldRef<"Aluno", 'String'>
-  readonly dtNascimento: Prisma.FieldRef<"Aluno", 'DateTime'>
   readonly formado: Prisma.FieldRef<"Aluno", 'Boolean'>
-  readonly rg: Prisma.FieldRef<"Aluno", 'Int'>
   readonly dtCriacao: Prisma.FieldRef<"Aluno", 'DateTime'>
   readonly dtAtualizacao: Prisma.FieldRef<"Aluno", 'DateTime'>
+  readonly rg: Prisma.FieldRef<"Aluno", 'Int'>
+  readonly dtNascimento: Prisma.FieldRef<"Aluno", 'DateTime'>
 }
     
 
@@ -1686,25 +1686,6 @@ export type AlunoDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Interna
 }
 
 /**
- * Aluno.endereco
- */
-export type Aluno$enderecoArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Endereco
-   */
-  select?: Prisma.EnderecoSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Endereco
-   */
-  omit?: Prisma.EnderecoOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.EnderecoInclude<ExtArgs> | null
-  where?: Prisma.EnderecoWhereInput
-}
-
-/**
  * Aluno.avaliacoes
  */
 export type Aluno$avaliacoesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1726,6 +1707,25 @@ export type Aluno$avaliacoesArgs<ExtArgs extends runtime.Types.Extensions.Intern
   take?: number
   skip?: number
   distinct?: Prisma.AvaliacaoScalarFieldEnum | Prisma.AvaliacaoScalarFieldEnum[]
+}
+
+/**
+ * Aluno.endereco
+ */
+export type Aluno$enderecoArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Endereco
+   */
+  select?: Prisma.EnderecoSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Endereco
+   */
+  omit?: Prisma.EnderecoOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EnderecoInclude<ExtArgs> | null
+  where?: Prisma.EnderecoWhereInput
 }
 
 /**
