@@ -13,6 +13,37 @@ export class AlunoRepository {
         }
     }
 
+    public async listarAlunoNome(nome: string) {
+        try {
+            const alunos = await prisma.aluno.findMany({
+                where: {
+                    nome: {
+                        contains: nome,
+                        mode: "insensitive"
+                    }
+                }
+            });
+            return alunos;
+        } catch (error: any) {
+            return handleError(error);
+        }
+    }
+
+    public async listarDatasNascimentoMaiorQue(data: Date) {
+        try {
+            const alunos = await prisma.aluno.findMany({
+                where: {
+                    dtNascimento: {
+                        gt: new Date(data)
+                    }
+                }
+            });
+            return alunos;
+        } catch (error: any) {
+            return handleError(error);
+        }
+    }
+
     public async buscaId(id: string) {
         try {
             const aluno = await prisma.aluno.findUnique({
@@ -37,21 +68,21 @@ export class AlunoRepository {
         }
     }
 
-    public async atualizar(id: string, dados: UpdateAlunoDto){
+    public async atualizar(id: string, dados: UpdateAlunoDto) {
         try {
             const aluno = await prisma.aluno.update({
                 where: {
                     id
                 },
                 data: dados
-        });
-        return aluno;  
-        } catch (error: any){
+            });
+            return aluno;
+        } catch (error: any) {
             return handleError(error);
         }
     }
 
-    public async deletar(id: string){
+    public async deletar(id: string) {
         try {
             const alunoExcluido = await prisma.aluno.delete({
                 where: {

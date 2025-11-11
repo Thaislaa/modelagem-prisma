@@ -29,9 +29,14 @@ async function main() {
     // console.log(alunoAtualizado);
 
     // --> Deletar aluno
-    const alunoDeletado = await alunoRepository.deletar("02f60a96-6490-40da-9152-10f438b1b3e0");
-    console.log(alunoDeletado);
+    // const alunoDeletado = await alunoRepository.deletar("02f60a96-6490-40da-9152-10f438b1b3e0");
+    // console.log(alunoDeletado);
 
+    // const aluno = await alunoRepository.listarAlunoNome("jean");
+    // console.log(aluno);
+    
+    const aluno = await alunoRepository.listarDatasNascimentoMaiorQue(new Date ("2000-11-24"));
+    console.log(aluno);
 }
 
 main();
