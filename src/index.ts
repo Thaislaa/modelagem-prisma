@@ -22,12 +22,16 @@ async function main() {
     // console.log(alunoCriado);
 
     // --> Atualizar aluno
-    const alunoAtualizado = await alunoRepository.atualizar("69de6229-14bf-4339-b417-33923db3339d", {
-        nome: "Jean Lucca Souza",
-        email: "jeanluccasouza@gmail.com"
-    });
-    console.log(alunoAtualizado);
-    
+    // const alunoAtualizado = await alunoRepository.atualizar("69de6229-14bf-4339-b417-33923db3339d", {
+    //     nome: "Jean Lucca Souza",
+    //     email: "jeanluccasouza@gmail.com"
+    // });
+    // console.log(alunoAtualizado);
+
+    // --> Deletar aluno
+    const alunoDeletado = await alunoRepository.deletar("02f60a96-6490-40da-9152-10f438b1b3e0");
+    console.log(alunoDeletado);
+
 }
 
 main();

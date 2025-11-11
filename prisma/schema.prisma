@@ -37,7 +37,7 @@ model Endereco{
   numero Int
   cidade String @db.VarChar(50)
   idAluno String @unique @map("id_aluno")
-  aluno Aluno @relation(fields: [idAluno], references: [id])
+  aluno Aluno @relation(fields: [idAluno], references: [id], onDelete: Cascade)
   @@map("endereco")
 }
 
@@ -47,7 +47,7 @@ model Avaliacao{
   nota Int @db.SmallInt
   dtAvaliacao DateTime @default(now()) @map("dt_avaliacao")
   idAluno String @map("id_aluno")
-  aluno Aluno @relation(fields: [idAluno],references: [id])
+  aluno Aluno @relation(fields: [idAluno],references: [id], onDelete: Cascade)
   @@map("avaliacao")
 }
 
@@ -68,8 +68,8 @@ model Matricula{
   idAluno String @map("id_aluno")
   idCurso String @map("id_curso")
   dtMatricula DateTime @default(now()) @map("dt_matricula")
-  aluno Aluno @relation(fields: [idAluno], references: [id])
-  curso Curso @relation(fields: [idCurso], references: [id])
+  aluno Aluno @relation(fields: [idAluno], references: [id], onDelete: Cascade)
+  curso Curso @relation(fields: [idCurso], references: [id], onDelete: Cascade)
   @@id([idAluno, idCurso])
   @@map("matricula")
 }

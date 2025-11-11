@@ -77,11 +77,11 @@ export const AlunoScalarFieldEnum = {
   nome: 'nome',
   email: 'email',
   senha: 'senha',
+  dtNascimento: 'dtNascimento',
   formado: 'formado',
-  dtCriacao: 'dtCriacao',
-  dtAtualizacao: 'dtAtualizacao',
   rg: 'rg',
-  dtNascimento: 'dtNascimento'
+  dtCriacao: 'dtCriacao',
+  dtAtualizacao: 'dtAtualizacao'
 } as const
 
 export type AlunoScalarFieldEnum = (typeof AlunoScalarFieldEnum)[keyof typeof AlunoScalarFieldEnum]

@@ -902,11 +902,11 @@ export const AlunoScalarFieldEnum = {
   nome: 'nome',
   email: 'email',
   senha: 'senha',
+  dtNascimento: 'dtNascimento',
   formado: 'formado',
-  dtCriacao: 'dtCriacao',
-  dtAtualizacao: 'dtAtualizacao',
   rg: 'rg',
-  dtNascimento: 'dtNascimento'
+  dtCriacao: 'dtCriacao',
+  dtAtualizacao: 'dtAtualizacao'
 } as const
 
 export type AlunoScalarFieldEnum = (typeof AlunoScalarFieldEnum)[keyof typeof AlunoScalarFieldEnum]
@@ -1016,13 +1016,6 @@ export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaMod
 
 
 /**
- * Reference to a field of type 'Boolean'
- */
-export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
-    
-
-
-/**
  * Reference to a field of type 'DateTime'
  */
 export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -1033,6 +1026,13 @@ export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel
  * Reference to a field of type 'DateTime[]'
  */
 export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Boolean'
+ */
+export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
