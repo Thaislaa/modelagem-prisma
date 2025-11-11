@@ -12,13 +12,22 @@ async function main() {
     // console.log(aluno);
 
     // --> Criar aluno
-    const alunoCriado = await alunoRepository.criarAluno({
-        nome: "João Carlos",
-        email: "joaocarlos@gmail.com",
-        senha: "1255",
-        dtNascimento: new Date("1968-02-28"),
-        rg: 1235589
+    // const alunoCriado = await alunoRepository.criarAluno({
+    //     nome: "João Carlos",
+    //     email: "joaocarlos@gmail.com",
+    //     senha: "1255",
+    //     dtNascimento: new Date("1968-02-28"),
+    //     rg: 1235589
+    // });
+    // console.log(alunoCriado);
+
+    // --> Atualizar aluno
+    const alunoAtualizado = await alunoRepository.atualizar("69de6229-14bf-4339-b417-33923db3339d", {
+        nome: "Jean Lucca Souza",
+        email: "jeanluccasouza@gmail.com"
     });
-    console.log(alunoCriado);
+    console.log(alunoAtualizado);
+    
 }
+
 main();

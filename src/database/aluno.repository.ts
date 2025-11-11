@@ -1,6 +1,7 @@
 import { CreateAlunoDto } from './../dtos/create-aluno.dto';
 import { prisma } from "../config/prisma.config";
 import { handleError } from '../config/error.handler';
+import { UpdateAlunoDto } from '../dtos/update-aluno.dto';
 
 export class AlunoRepository {
     public async list() {
@@ -35,4 +36,20 @@ export class AlunoRepository {
             return handleError(error);
         }
     }
+
+    public async atualizar(id: string, dados: UpdateAlunoDto){
+        try {
+            const aluno = await prisma.aluno.update({
+                where: {
+                    id
+                },
+                data: dados
+        });
+        return aluno;  
+        } catch (error: any){
+            return handleError(error);
+        }
+    }
+
+    
 }
