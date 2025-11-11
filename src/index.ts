@@ -35,8 +35,12 @@ async function main() {
     // const aluno = await alunoRepository.listarAlunoNome("jean");
     // console.log(aluno);
     
-    const aluno = await alunoRepository.listarDatasNascimentoMaiorQue(new Date ("2000-11-24"));
-    console.log(aluno);
+    // const aluno = await alunoRepository.listarDatasNascimentoMaiorQue(new Date ("2000-11-24"));
+    // console.log(aluno);
+
+    const atualizarSituacaoFormado = await alunoRepository.alterarFormado("69de6229-14bf-4339-b417-33923db3339d");
+    console.log(atualizarSituacaoFormado);
+    
 }
 
 main();

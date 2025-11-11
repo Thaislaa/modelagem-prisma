@@ -44,6 +44,34 @@ export class AlunoRepository {
         }
     }
 
+    public async alterarFormado(id: string){
+        try {
+            const aluno = await prisma.aluno.findUnique({
+                where: {
+                    id
+                }
+            });
+
+            if(!aluno){
+                throw new Error("Aluno não encontrado");
+            }
+
+            if(aluno){
+                const mudarFormadoAluno = await prisma.aluno.update({
+                    where: {
+                        id
+                    },
+                    data: {
+                        formado: !aluno.formado
+                    }
+                });
+            }
+            return aluno;
+        } catch (error: any) {
+            handleError(error);
+        }
+    }
+
     public async buscaId(id: string) {
         try {
             const aluno = await prisma.aluno.findUnique({
