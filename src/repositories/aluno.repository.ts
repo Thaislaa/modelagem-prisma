@@ -7,28 +7,7 @@ export class AlunoRepository {
     // LISTA ALUNOS
     public async list() {
         try {
-            const alunos = await prisma.aluno.findMany({
-                where: {
-                    OR: [
-                        {
-                            nome: {
-                                contains: "silva",
-                                mode: "insensitive"
-                            },
-
-                            email: {
-                                endsWith: "@gmail.com"
-                            }
-                        }
-                    ]
-                },
-                select: {
-                    id: true,
-                    nome: true,
-                    email: true
-                },
-                take: 2
-            })
+            const alunos = await prisma.aluno.findMany()
             return alunos
         } catch (error) {
             return handleError(error)
