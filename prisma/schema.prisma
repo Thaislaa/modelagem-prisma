@@ -1,0 +1,108 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Aluno {
+  id           String    @id @default(uuid()) @db.Uuid
+  nome         String    @db.VarChar(120)
+  email        String    @unique @db.Char(60)
+  senha        String
+  dtNascimento DateTime? @map("dt_nascimento") @db.Date
+  formado      Boolean   @default(false)
+
+  dtCriacao     DateTime @default(now()) @map("dt_criacao")
+  dtAtualizacao DateTime @updatedAt @map("dt_atualizacao")
+
+  endereco   Endereco?
+  avaliacoes Avaliacao[]
+
+  matriculas Matricula[]
+
+  @@map("aluno")
+}
+
+// Aluno pode ter N avaliacoes, uma avaliacao é de apenas 1 aluno
+model Avaliacao {
+  id         String @id @default(uuid()) @db.Uuid
+  disciplina String @db.VarChar(30)
+  nota       Int    @db.SmallInt
+
+  dtCriacao     DateTime @default(now()) @map("dt_criacao")
+  dtAtualizacao DateTime @updatedAt @map("dt_atualizacao")
+
+  idAluno String @map("id_aluno") @db.Uuid
+  aluno   Aluno  @relation(fields: [idAluno], references: [id], onDelete: Cascade)
+
+  @@map("avaliacao")
+}
+
+// Aluno possui um endereço, 1 endereço está associado a 1 aluno
+model Endereco {
+  id     String @id @default(uuid()) @db.Uuid
+  rua    String @db.VarChar(30)
+  bairro String @db.VarChar(30)
+  numero Int    @db.SmallInt
+  cidade String @db.VarChar(50)
+
+  dtCriacao     DateTime @default(now()) @map("dt_criacao")
+  dtAtualizacao DateTime @updatedAt @map("dt_atualizacao")
+
+  idAluno String @unique @map("id_aluno") @db.Uuid
+  aluno   Aluno  @relation(fields: [idAluno], references: [id])
+
+  @@map("endereco")
+}
+
+model Curso {
+  id           String @id @default(uuid()) @db.Uuid
+  titulo       String
+  ementa       String
+  cargaHoraria Int    @map("carga_horaria")
+  maxAlunos    Int    @default(30) @map("max_alunos") @db.SmallInt
+  status       String
+
+  dtCriacao     DateTime @default(now()) @map("dt_criacao")
+  dtAtualizacao DateTime @updatedAt @map("dt_atualizacao")
+
+  matriculas Matricula[]
+
+  @@map("curso")
+}
+
+// Um aluno pode estar em N cursos, um curso pode ter N alunos
+model Matricula {
+  idCurso String @map("id_curso") @db.Uuid
+  idAluno String @map("id_aluno") @db.Uuid
+
+  dtMatricula   DateTime @default(now()) @map("dt_matricula")
+  dtAtualizacao DateTime @updatedAt @map("dt_atualizacao")
+
+  curso Curso @relation(fields: [idCurso], references: [id])
+  aluno Aluno @relation(fields: [idAluno], references: [id])
+
+  @@id([idCurso, idAluno])
+  @@map("matricula")
+}
+
+model Material {
+  id         Int     @id @default(autoincrement())
+  titulo     String
+  descricao  String
+  link       String
+  disponivel Boolean
+
+  dtCriacao     DateTime @default(now()) @map("dt_criacao")
+  dtAtualizacao DateTime @updatedAt @map("dt_atualizacao")
+
+  @@map("material")
+}
