@@ -1,12 +1,13 @@
 import { handleError } from "../config/error.handler.js";
 import type { AvaliacaoDto } from "../dtos/create-avaliacao.dto.js";
+import type { UpdateAvaliacaoDto } from "../dtos/update-avaliacao.dto.js";
 import { prisma } from "../lib/prisma.js";
 import { AlunoRepository } from "./aluno.repository.js";
 
 export class AvaliacaoRepository {
 
     // LISTAR AVALIAÇÕES
-    public async list() {
+    public async listar() {
         try {
             const avaliacoes = await prisma.avaliacao.findMany()
             return avaliacoes
@@ -53,6 +54,36 @@ export class AvaliacaoRepository {
             })
 
             return avaliacao
+        } catch (error) {
+            handleError(error)
+        }
+    }
+
+    // ATUALIZAR AVALIAÇÃO
+    public async atualizar(id: string, dados: UpdateAvaliacaoDto) {
+        try {
+            const atualizarAvaliacao = await prisma.avaliacao.update({
+                where: {
+                    id: id
+                },
+                data: dados
+            })
+
+            return atualizarAvaliacao
+        } catch (error) {
+            handleError(error)
+        }
+    }
+
+    // DELETAR AVALIAÇÃO
+    public async deletarAvaliacao(id: string) {
+        try {
+            const excluirAvaliacao = await prisma.avaliacao.delete({
+                where: {
+                    id
+                }
+            })
+            return excluirAvaliacao
         } catch (error) {
             handleError(error)
         }

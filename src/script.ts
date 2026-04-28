@@ -7,7 +7,7 @@ const avaliacaoRepository = new AvaliacaoRepository()
 
 async function main() {
     // 1 - Listar alunos
-    // const alunos = await alunoRepository.list()
+    // const alunos = await alunoRepository.listar()
     // console.log("lISTA DE ALUNOS: ", alunos)
 
     // 2 - Listar aluno por id
