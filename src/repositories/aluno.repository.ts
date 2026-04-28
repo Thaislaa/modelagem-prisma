@@ -28,6 +28,29 @@ export class AlunoRepository {
         }
     }
 
+    // LISTAR ALUNOS COM SUAS AVALIAÇÕES
+    public async listarAlunosAvaliacoes() {
+        try {
+            const alunoAvaliacao = await prisma.aluno.findMany({
+                select: {
+                    id: true,
+                    nome: true,
+                    email: true,
+                    avaliacoes: {
+                        select: {
+                            id: true,
+                            disciplina: true,
+                            nota: true
+                        }
+                    }
+                }
+            })
+            return alunoAvaliacao
+        } catch (error) {
+            handleError(error)
+        }
+    }
+
     // CRIA ALUNO
     public async criarAluno(dados: AlunoDto) {
         try {

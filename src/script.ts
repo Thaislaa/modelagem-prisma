@@ -37,11 +37,15 @@ async function main() {
     // console.log(alunoExcluido)
 
     // 6 - Criar avaliação
-    const avaliacao = avaliacaoRepository.criar({
-        disciplina: "React",
-        nota: 8,
-        idAluno: "1a693932-7767-4488-961a-eac873f9aac3"
-    })
+    // const avaliacao = avaliacaoRepository.criar({
+    //     disciplina: "React",
+    //     nota: 8,
+    //     idAluno: "1a693932-7767-4488-961a-eac873f9aac3"
+    // })
+
+    // 7 - Lista avaliação com informações dos alunos
+    // const avaliacaoComAlunos = await avaliacaoRepository.listaAvaliacaoComAluno();
+    // console.log(avaliacaoComAlunos)
 }
 
 main();

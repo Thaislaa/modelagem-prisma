@@ -4,6 +4,41 @@ import { prisma } from "../lib/prisma.js";
 import { AlunoRepository } from "./aluno.repository.js";
 
 export class AvaliacaoRepository {
+
+    // LISTAR AVALIAÇÕES
+    public async list() {
+        try {
+            const avaliacoes = await prisma.avaliacao.findMany()
+            return avaliacoes
+        } catch (error) {
+            handleError(error)
+        }
+    }
+
+    // LISTAR AVALIAÇÕES COM AS INFORMAÇÕES DE ALUNOS
+    public async listaAvaliacaoComAluno() {
+        try {
+            const avaliacoes = await prisma.avaliacao.findMany({
+                select: {
+                    id: true,
+                    disciplina: true,
+                    nota: true,
+                    aluno: {
+                        select: {
+                            id: true,
+                            nome: true,
+                            email: true
+                        }
+                    }
+                }
+            })
+            return avaliacoes
+        } catch (error) {
+            handleError(error)
+        }
+    }
+
+    // CRIAR AVALIAÇÕES
     public async criar(dados: AvaliacaoDto) {
         try {
             const alunoRepository = new AlunoRepository()
