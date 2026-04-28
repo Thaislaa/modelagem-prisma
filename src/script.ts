@@ -1,9 +1,11 @@
 import { randomUUID } from "node:crypto";
 import { AlunoRepository } from "./repositories/aluno.repository.js";
 import { AvaliacaoRepository } from "./repositories/avaliacao.repository.js";
+import { EnderecoRepository } from "./repositories/endereco.repository.js";
 
 const alunoRepository = new AlunoRepository()
 const avaliacaoRepository = new AvaliacaoRepository()
+const enderecoRepository = new EnderecoRepository()
 
 async function main() {
     // 1 - Listar alunos
@@ -37,7 +39,7 @@ async function main() {
     // console.log(alunoExcluido)
 
     // 6 - Criar avaliação
-    // const avaliacao = avaliacaoRepository.criar({
+    // const avaliacao = await avaliacaoRepository.criar({
     //     disciplina: "React",
     //     nota: 8,
     //     idAluno: "1a693932-7767-4488-961a-eac873f9aac3"
@@ -46,6 +48,30 @@ async function main() {
     // 7 - Lista avaliação com informações dos alunos
     // const avaliacaoComAlunos = await avaliacaoRepository.listaAvaliacaoComAluno();
     // console.log(avaliacaoComAlunos)
+
+    // 8 - Listar endereços
+    // const enderecos = await enderecoRepository.listar()
+    // console.log(enderecos);
+
+    // 9 - Criar endereço
+    // const novoEndereco = await enderecoRepository.criar({
+    //     rua: "Rua Seis de Março",
+    //     bairro: "Centenário",
+    //     cidade: "Sapiranga",
+    //     numero: 45,
+    //     idAluno: "1a693932-7767-4488-961a-eac873f9aac3"
+    // })
+    // console.log(novoEndereco)
+
+    // 10 - Atualizar endereço
+    // const atualizarEndereco = await enderecoRepository.atualizar("4669761d-aa49-4e4f-8e9b-560486e2f0c1", {
+    //     numero: 46
+    // })
+    // console.log(atualizarEndereco);
+
+    // 11 - Deletar endereço
+    // const deleteEndereco = await enderecoRepository.deletarEndereco("4669761d-aa49-4e4f-8e9b-560486e2f0c1")
+    // console.log(deleteEndereco);
 }
 
 main();
