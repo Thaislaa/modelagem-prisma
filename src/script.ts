@@ -2,10 +2,12 @@ import { randomUUID } from "node:crypto";
 import { AlunoRepository } from "./repositories/aluno.repository.js";
 import { AvaliacaoRepository } from "./repositories/avaliacao.repository.js";
 import { EnderecoRepository } from "./repositories/endereco.repository.js";
+import { MaterialRepository } from "./repositories/material.repository.js";
 
 const alunoRepository = new AlunoRepository()
 const avaliacaoRepository = new AvaliacaoRepository()
 const enderecoRepository = new EnderecoRepository()
+const materialRepository = new MaterialRepository()
 
 async function main() {
     // 1 - Listar alunos
@@ -72,6 +74,34 @@ async function main() {
     // 11 - Deletar endereço
     // const deleteEndereco = await enderecoRepository.deletarEndereco("4669761d-aa49-4e4f-8e9b-560486e2f0c1")
     // console.log(deleteEndereco);
+
+    // 12 - Listar materiais
+    // const materiais = await materialRepository.listar();
+    // console.log(materiais);
+
+    // 13 - Criar material 
+    // const criarMaterial = await materialRepository.criar({
+    //     titulo: "React Básico",
+    //     descricao: "Introdução simples ao React.",
+    //     link: "https://react.dev",
+    //     disponivel: true
+    // })
+    // console.log(criarMaterial)
+
+    // 14 - Atualizar material
+    // const atualizarMaterial = await materialRepository.atualizar(3, {
+    //     titulo: "React Avançado",
+    //     descricao: "Material avançado de React"
+    // })
+    // console.log(atualizarMaterial);
+
+    // 15 - Obter material por id
+    // const obterMaterialPorId = await materialRepository.obterPorId(3)
+    // console.log(obterMaterialPorId);
+
+    // 16 - Deletar material
+    // const deletarMaterial = await materialRepository.deletar(3);
+    // console.log(deletarMaterial)
 }
 
 main();
