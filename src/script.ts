@@ -3,11 +3,13 @@ import { AlunoRepository } from "./repositories/aluno.repository.js";
 import { AvaliacaoRepository } from "./repositories/avaliacao.repository.js";
 import { EnderecoRepository } from "./repositories/endereco.repository.js";
 import { MaterialRepository } from "./repositories/material.repository.js";
+import { CursoRepository } from "./repositories/curso.repository.js";
 
 const alunoRepository = new AlunoRepository()
 const avaliacaoRepository = new AvaliacaoRepository()
 const enderecoRepository = new EnderecoRepository()
 const materialRepository = new MaterialRepository()
+const cursoRepository = new CursoRepository()
 
 async function main() {
     // 1 - Listar alunos
@@ -102,6 +104,31 @@ async function main() {
     // 16 - Deletar material
     // const deletarMaterial = await materialRepository.deletar(3);
     // console.log(deletarMaterial)
+
+    // 17 - Listar cursos
+    // const cursos = await cursoRepository.listar()
+    // console.log(cursos);
+
+    // 18 - Criar Curso
+    // const criarCurso = await cursoRepository.criar({
+    //     titulo: "Frontend Completo",
+    //     ementa: "HTML, CSS, JavaScript",
+    //     status: "ATIVO",
+    //     cargaHoraria: 80,
+    //     maxAlunos: 35
+    // })
+    // console.log(criarCurso);
+
+    // 19 - Atualiazar Curso 
+    // const atualizarCurso = await cursoRepository.atualizar("a3336890-9c0f-4a02-adfb-0f858fe373ed", {
+    //     titulo: "FrontEnd Completo com React",
+    //     cargaHoraria: 100
+    // })
+    // console.log(atualizarCurso)
+
+    // 20 - Deletar Curso
+    // const deletarCurso = await cursoRepository.deletar("a3336890-9c0f-4a02-adfb-0f858fe373ed")
+    // console.log(deletarCurso);
 }
 
 main();
