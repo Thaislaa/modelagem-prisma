@@ -1,15 +1,16 @@
-import { randomUUID } from "node:crypto";
 import { AlunoRepository } from "./repositories/aluno.repository.js";
 import { AvaliacaoRepository } from "./repositories/avaliacao.repository.js";
 import { EnderecoRepository } from "./repositories/endereco.repository.js";
 import { MaterialRepository } from "./repositories/material.repository.js";
 import { CursoRepository } from "./repositories/curso.repository.js";
+import { MatriculaRepository } from "./repositories/matricula.repository.js";
 
 const alunoRepository = new AlunoRepository()
 const avaliacaoRepository = new AvaliacaoRepository()
 const enderecoRepository = new EnderecoRepository()
 const materialRepository = new MaterialRepository()
 const cursoRepository = new CursoRepository()
+const matriculaRepository = new MatriculaRepository()
 
 async function main() {
     // 1 - Listar alunos
@@ -129,6 +130,31 @@ async function main() {
     // 20 - Deletar Curso
     // const deletarCurso = await cursoRepository.deletar("a3336890-9c0f-4a02-adfb-0f858fe373ed")
     // console.log(deletarCurso);
+
+    // 21 - Listar matriculas
+    // const matriculas = await matriculaRepository.listar()
+    // console.log(matriculas);
+
+    // 22 - Criar matricula 
+    // const criarMatricula = await matriculaRepository.criar({
+    //     idAluno: "29024a2e-5f50-41f4-a70f-f34c1e14f6cb",
+    //     idCurso: "7da5eeab-4bfa-4c62-aa99-3b5b820c3192"
+    // })
+    // console.log(criarMatricula);
+
+    // 23 - Obter matricula por id
+    // const obterMatriculaPorId = await matriculaRepository.obterPorId(
+    //     "29024a2e-5f50-41f4-a70f-f34c1e14f6cb",
+    //     "7da5eeab-4bfa-4c62-aa99-3b5b820c3192"
+    // )
+    // console.log(obterMatriculaPorId);
+
+    // 24 - Deletar matricula 
+    // const deletarMatricula = await matriculaRepository.deletar(
+    //     "29024a2e-5f50-41f4-a70f-f34c1e14f6cb",
+    //     "7da5eeab-4bfa-4c62-aa99-3b5b820c3192",
+    // )
+    // console.log(deletarMatricula);
 }
 
-main();
+main(); 
