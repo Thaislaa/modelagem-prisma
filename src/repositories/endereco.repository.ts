@@ -3,29 +3,44 @@ import type { EnderecoDto } from "../dtos/create-endereco.dto.js";
 import { prisma } from "../lib/prisma.js";
 import { AlunoRepository } from "./aluno.repository.js";
 import type { UpdateEnderecoDto } from "../dtos/update-endereco.dto.js";
-import { error } from "node:console";
 
 export class EnderecoRepository {
 
     // LISTAR ENDEREÇOS
     public async listar() {
         try {
-            const enderecos = prisma.endereco.findMany()
+            const enderecos = await prisma.endereco.findMany()
+
             return enderecos
         } catch (error) {
             handleError(error)
         }
     }
 
-    // CRIAR ENDEREÇOS
+    // OBTER ENDEREÇO POR ID 
+    public async obterPorId(id: string) {
+        try {
+            const encontrado = await prisma.endereco.findUnique({
+                where: {
+                    id
+                }
+            })
+
+            if (!encontrado) {
+                throw new Error("Endereço não encontrado")
+            }
+
+            return encontrado
+        } catch (error) {
+            handleError(error)
+        }
+    }
+
+    // CRIAR ENDEREÇO
     public async criar(dados: EnderecoDto) {
         try {
             const alunoRepository = new AlunoRepository()
-            const aluno = await alunoRepository.obterPorId(dados.idAluno);
-
-            if (!aluno) {
-                throw new Error("Aluno não encontrado")
-            }
+            await alunoRepository.obterPorId(dados.idAluno)
 
             const novoEndereco = await prisma.endereco.create({
                 data: dados
@@ -37,12 +52,14 @@ export class EnderecoRepository {
         }
     }
 
-    // ATUALIZAR ENDEREÇOS
+    // ATUALIZAR ENDEREÇO
     public async atualizar(id: string, dados: UpdateEnderecoDto) {
         try {
+            await this.obterPorId(id)
+
             const atualizarEndereco = await prisma.endereco.update({
                 where: {
-                    id: id
+                    id
                 },
                 data: dados
             })
@@ -53,9 +70,11 @@ export class EnderecoRepository {
         }
     }
 
-    // DELETAR ENDERECO
-    public async deletarEndereco(id: string) {
+    // DELETAR ENDEREÇO
+    public async deletar(id: string) {
         try {
+            await this.obterPorId(id)
+
             const excluirEndereco = await prisma.endereco.delete({
                 where: {
                     id

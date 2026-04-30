@@ -10,6 +10,7 @@ export class AvaliacaoRepository {
     public async listar() {
         try {
             const avaliacoes = await prisma.avaliacao.findMany()
+
             return avaliacoes
         } catch (error) {
             handleError(error)
@@ -17,7 +18,7 @@ export class AvaliacaoRepository {
     }
 
     // LISTAR AVALIAÇÕES COM AS INFORMAÇÕES DE ALUNOS
-    public async listaAvaliacaoComAluno() {
+    public async listarAvaliacoesComAluno() {
         try {
             const avaliacoes = await prisma.avaliacao.findMany({
                 select: {
@@ -33,21 +34,37 @@ export class AvaliacaoRepository {
                     }
                 }
             })
+
             return avaliacoes
         } catch (error) {
             handleError(error)
         }
     }
 
-    // CRIAR AVALIAÇÕES
+    // OBTER AVALIAÇÃO POR ID
+    public async obterPorId(id: string) {
+        try {
+            const encontrado = await prisma.avaliacao.findUnique({
+                where: {
+                    id
+                }
+            })
+
+            if (!encontrado) {
+                throw new Error("Avaliação não encontrada")
+            }
+
+            return encontrado
+        } catch (error) {
+            handleError(error)
+        }
+    }
+
+    // CRIAR AVALIAÇÃO
     public async criar(dados: AvaliacaoDto) {
         try {
             const alunoRepository = new AlunoRepository()
-            const aluno = await alunoRepository.obterPorId(dados.idAluno)
-
-            if (!aluno) {
-                throw new Error("Aluno não encontrado")
-            }
+            await alunoRepository.obterPorId(dados.idAluno)
 
             const avaliacao = await prisma.avaliacao.create({
                 data: dados
@@ -62,9 +79,11 @@ export class AvaliacaoRepository {
     // ATUALIZAR AVALIAÇÃO
     public async atualizar(id: string, dados: UpdateAvaliacaoDto) {
         try {
+            await this.obterPorId(id)
+
             const atualizarAvaliacao = await prisma.avaliacao.update({
                 where: {
-                    id: id
+                    id
                 },
                 data: dados
             })
@@ -76,13 +95,16 @@ export class AvaliacaoRepository {
     }
 
     // DELETAR AVALIAÇÃO
-    public async deletarAvaliacao(id: string) {
+    public async deletar(id: string) {
         try {
+            await this.obterPorId(id)
+
             const excluirAvaliacao = await prisma.avaliacao.delete({
                 where: {
                     id
                 }
             })
+
             return excluirAvaliacao
         } catch (error) {
             handleError(error)

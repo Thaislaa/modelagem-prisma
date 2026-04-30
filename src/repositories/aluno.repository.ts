@@ -4,25 +4,32 @@ import type { UpdateAlunoDto } from "../dtos/update-aluno.dto.js";
 import { prisma } from "../lib/prisma.js";
 
 export class AlunoRepository {
-    // LISTA ALUNOS
-    public async list() {
+
+    // LISTAR ALUNOS
+    public async listar() {
         try {
             const alunos = await prisma.aluno.findMany()
+
             return alunos
         } catch (error) {
             return handleError(error)
         }
     }
 
-    // LISTA ALUNO POR ID
+    // LISTAR ALUNO POR ID
     public async obterPorId(id: string) {
         try {
-            const aluno = await prisma.aluno.findUnique({
+            const encontrado = await prisma.aluno.findUnique({
                 where: {
-                    id: id
+                    id
                 }
             })
-            return aluno
+
+            if (!encontrado) {
+                throw new Error("Aluno não encontrado")
+            }
+
+            return encontrado
         } catch (error) {
             return handleError(error)
         }
@@ -45,18 +52,20 @@ export class AlunoRepository {
                     }
                 }
             })
+
             return alunoAvaliacao
         } catch (error) {
             handleError(error)
         }
     }
 
-    // CRIA ALUNO
-    public async criarAluno(dados: AlunoDto) {
+    // CRIAR ALUNO
+    public async criar(dados: AlunoDto) {
         try {
             const aluno = await prisma.aluno.create({
                 data: dados
             })
+
             return aluno
         } catch (error) {
             return handleError(error)
@@ -66,12 +75,15 @@ export class AlunoRepository {
     // ATUALIZAR ALUNO
     public async atualizar(id: string, dados: UpdateAlunoDto) {
         try {
+            await this.obterPorId(id)
+
             const aluno = await prisma.aluno.update({
                 where: {
                     id
                 },
                 data: dados
             })
+
             return aluno
         } catch (error) {
             handleError(error)
@@ -79,13 +91,16 @@ export class AlunoRepository {
     }
 
     // DELETAR ALUNO
-    public async excluir(id: string) {
+    public async deletar(id: string) {
         try {
+            await this.obterPorId(id)
+
             const alunoExcluido = await prisma.aluno.delete({
                 where: {
                     id
                 }
             })
+
             return alunoExcluido
         } catch (error) {
             handleError(error)

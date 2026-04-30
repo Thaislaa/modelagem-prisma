@@ -8,7 +8,8 @@ export class CursoRepository {
     // LISTAR CURSOS
     public async listar() {
         try {
-            const cursos = await prisma.curso.findMany();
+            const cursos = await prisma.curso.findMany()
+
             return cursos
         } catch (error) {
             handleError(error)

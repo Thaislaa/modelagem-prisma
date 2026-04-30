@@ -9,6 +9,7 @@ export class MaterialRepository {
     public async listar() {
         try {
             const materiais = await prisma.material.findMany()
+
             return materiais
         } catch (error) {
             handleError(error)
@@ -41,6 +42,7 @@ export class MaterialRepository {
             const material = await prisma.material.create({
                 data: dados
             })
+
             return material
         } catch (error) {
             handleError(error)

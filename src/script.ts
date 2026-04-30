@@ -18,40 +18,42 @@ async function main() {
     // console.log("lISTA DE ALUNOS: ", alunos)
 
     // 2 - Listar aluno por id
-    // const aluno = await alunoRepository.obterPorId("dd67aa72-26e3-4d1f-92e6-933b216fbf6b")
-    // console.log(aluno)
+    // const obterAlunoPorId = await alunoRepository.obterPorId("dd67aa72-26e3-4d1f-92e6-933b216fbf6b")
+    // console.log(obterAlunoPorId)
 
     // 3 - Criar aluno
-    // const aluno = await alunoRepository.criarAluno({
+    // const criarAluno = await alunoRepository.criar({
     //     nome: "Alana Souza",
     //     email: "alanasouza@gmail.com",
     //     senha: "123456",
     //     dtNascimento: new Date("2007-08-22"),
     // })
+    // console.log(criarAluno);
 
     // 4 - Atualizar aluno
-    // const alunoAtualizado = await alunoRepository.atualizar(
+    // const atualizarAluno = await alunoRepository.atualizar(
     //     "dd67aa72-26e3-4d1f-92e6-933b216fbf6b",
     //     {
     //         nome: "Maria Souza Matos",
     //         email: "mariasouza@gmail.com"
     //     }
     // )
-    // console.log(alunoAtualizado);
+    // console.log(atualizarAluno);
 
     // 5 - Deletar aluno
-    // const alunoExcluido = await alunoRepository.excluir("dd67aa72-26e3-4d1f-92e6-933b216fbf6b")
-    // console.log(alunoExcluido)
+    // const deletarAluno = await alunoRepository.deletar("dd67aa72-26e3-4d1f-92e6-933b216fbf6b")
+    // console.log(deletarAluno)
 
     // 6 - Criar avaliação
-    // const avaliacao = await avaliacaoRepository.criar({
+    // const criarAvaliacao = await avaliacaoRepository.criar({
     //     disciplina: "React",
     //     nota: 8,
     //     idAluno: "1a693932-7767-4488-961a-eac873f9aac3"
     // })
+    // console.log(criarAvaliacao);
 
     // 7 - Lista avaliação com informações dos alunos
-    // const avaliacaoComAlunos = await avaliacaoRepository.listaAvaliacaoComAluno();
+    // const avaliacaoComAlunos = await avaliacaoRepository.listarAvaliacoesComAluno();
     // console.log(avaliacaoComAlunos)
 
     // 8 - Listar endereços
@@ -59,14 +61,14 @@ async function main() {
     // console.log(enderecos);
 
     // 9 - Criar endereço
-    // const novoEndereco = await enderecoRepository.criar({
+    // const criarEndereco = await enderecoRepository.criar({
     //     rua: "Rua Seis de Março",
     //     bairro: "Centenário",
     //     cidade: "Sapiranga",
     //     numero: 45,
     //     idAluno: "1a693932-7767-4488-961a-eac873f9aac3"
     // })
-    // console.log(novoEndereco)
+    // console.log(criarEndereco)
 
     // 10 - Atualizar endereço
     // const atualizarEndereco = await enderecoRepository.atualizar("4669761d-aa49-4e4f-8e9b-560486e2f0c1", {
@@ -75,8 +77,8 @@ async function main() {
     // console.log(atualizarEndereco);
 
     // 11 - Deletar endereço
-    // const deleteEndereco = await enderecoRepository.deletarEndereco("4669761d-aa49-4e4f-8e9b-560486e2f0c1")
-    // console.log(deleteEndereco);
+    // const deletarEndereco = await enderecoRepository.deletar("4669761d-aa49-4e4f-8e9b-560486e2f0c1")
+    // console.log(deletarEndereco);
 
     // 12 - Listar materiais
     // const materiais = await materialRepository.listar();
