@@ -111,28 +111,4 @@ export class AvaliacaoRepository {
             handleError(error)
         }
     }
-
-    // CRIAR ALUNO E AVALIAÇÃO 
-    public async criarAlunoAvaliacao(dados: AlunoAvaliacaoDto) {
-        return await prisma.$transaction(async (tx) => {
-
-            const aluno = await tx.aluno.create({
-                data: {
-                    email: dados.email,
-                    nome: dados.nome,
-                    senha: dados.senha,
-                    dtNascimento: dados.dtNascimento ?? null
-                }
-            })
-
-            const avaliacao = await tx.avaliacao.create({
-                data: {
-                    idAluno: aluno.id,
-                    ...dados.avaliacao
-                }
-            })
-
-            return { aluno, avaliacao }
-        })
-    }
 }

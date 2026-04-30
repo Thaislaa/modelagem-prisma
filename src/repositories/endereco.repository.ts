@@ -87,27 +87,4 @@ export class EnderecoRepository {
             handleError(error)
         }
     }
-
-    // CRIAR ALUNO E ENDEREÇO 
-    public async criarAlunoEndereco(dados: AlunoEnderecoDto) {
-        return await prisma.$transaction(async (tx) => {
-            const aluno = await tx.aluno.create({
-                data: {
-                    email: dados.email,
-                    nome: dados.nome,
-                    senha: dados.senha,
-                    dtNascimento: dados.dtNascimento ?? null
-                }
-            })
-
-            const endereco = await tx.endereco.create({
-                data: {
-                    idAluno: aluno.id,
-                    ...dados.endereco
-                }
-            })
-
-            return { aluno, endereco }
-        })
-    }
 }

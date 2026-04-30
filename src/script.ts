@@ -4,6 +4,7 @@ import { EnderecoRepository } from "./repositories/endereco.repository.js";
 import { MaterialRepository } from "./repositories/material.repository.js";
 import { CursoRepository } from "./repositories/curso.repository.js";
 import { MatriculaRepository } from "./repositories/matricula.repository.js";
+import { AlunoService } from "./services/aluno.service.js";
 
 const alunoRepository = new AlunoRepository()
 const avaliacaoRepository = new AvaliacaoRepository()
@@ -11,6 +12,7 @@ const enderecoRepository = new EnderecoRepository()
 const materialRepository = new MaterialRepository()
 const cursoRepository = new CursoRepository()
 const matriculaRepository = new MatriculaRepository()
+const alunoService = new AlunoService()
 
 async function main() {
     // 1 - Listar alunos
@@ -159,7 +161,7 @@ async function main() {
     // console.log(deletarMatricula);
 
     // 25 - Criar aluno + avaliação 
-    // const criarAlunoAvaliacao = await avaliacaoRepository.criarAlunoAvaliacao({
+    // const criarAlunoAvaliacao = await alunoService.criarAlunoAvaliacao({
     //     nome: "Carlos Eduardo",
     //     email: "carloshenrich@gmail.com",
     //     senha: "12345",
@@ -172,7 +174,7 @@ async function main() {
     // console.log(criarAlunoAvaliacao);
 
     // 26 - Criar aluno + endereco 
-    // const criarAlunoEndereco = await enderecoRepository.criarAlunoEndereco({
+    // const criarAlunoEndereco = await alunoService.criarAlunoEndereco({
     //     nome: "Maria Eduarda",
     //     email: "maria@gmail.com",
     //     senha: "12345",
