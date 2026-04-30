@@ -1,4 +1,5 @@
 import { handleError } from "../config/error.handler.js";
+import type { AlunoAvaliacaoDto } from "../dtos/create-aluno-avaliacao.dto.js";
 import type { AvaliacaoDto } from "../dtos/create-avaliacao.dto.js";
 import type { UpdateAvaliacaoDto } from "../dtos/update-avaliacao.dto.js";
 import { prisma } from "../lib/prisma.js";
@@ -109,5 +110,29 @@ export class AvaliacaoRepository {
         } catch (error) {
             handleError(error)
         }
+    }
+
+    // CRIAR ALUNO E AVALIAÇÃO 
+    public async criarAlunoAvaliacao(dados: AlunoAvaliacaoDto) {
+        return await prisma.$transaction(async (tx) => {
+
+            const aluno = await tx.aluno.create({
+                data: {
+                    email: dados.email,
+                    nome: dados.nome,
+                    senha: dados.senha,
+                    dtNascimento: dados.dtNascimento ?? null
+                }
+            })
+
+            const avaliacao = await tx.avaliacao.create({
+                data: {
+                    idAluno: aluno.id,
+                    ...dados.avaliacao
+                }
+            })
+
+            return { aluno, avaliacao }
+        })
     }
 }

@@ -157,6 +157,19 @@ async function main() {
     //     "7da5eeab-4bfa-4c62-aa99-3b5b820c3192",
     // )
     // console.log(deletarMatricula);
+
+    // 25 - Criar aluno + avaliação 
+    // const criarAlunoAvaliacao = await avaliacaoRepository.criarAlunoAvaliacao({
+    //     nome: "Carlos Eduardo",
+    //     email: "carloshenrich@gmail.com",
+    //     senha: "12345",
+    //     dtNascimento: new Date("2000-05-25"),
+    //     avaliacao: {
+    //         disciplina: "React",
+    //         nota: 7,
+    //     }
+    // })
+    // console.log(criarAlunoAvaliacao);
 }
 
 main(); 
