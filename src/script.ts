@@ -170,6 +170,22 @@ async function main() {
     //     }
     // })
     // console.log(criarAlunoAvaliacao);
+
+    // 26 - Criar aluno + endereco 
+    // const criarAlunoEndereco = await enderecoRepository.criarAlunoEndereco({
+    //     nome: "Maria Eduarda",
+    //     email: "maria@gmail.com",
+    //     senha: "12345",
+    //     dtNascimento: new Date("2010-09-27"),
+    //     endereco: {
+    //         rua: "Rua Caigangue",
+    //         bairro: "Amaral",
+    //         cidade: "Sapiranga",
+    //         numero: 1055,
+    //     }
+    // })
+    // console.log(criarAlunoEndereco);
+
 }
 
 main(); 
